@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="static/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
+    <title>Groupie Tracker</title>
+</head>
+<body>
+    <header class="navbar">
+        <h1 class="title">
+            <span class="title-word title-word-1">GEOLOCALIZATION</span>  
+        </h1>
+        <!--div class="search-bar">
+            <form action="/recherche" method="GET">
+                <input  type="text" name="q" placeholder="Search Group" class="title-word title-word-1">
+                <button type="submit" class="title-word title-word-1">Rechercher</button>
+            </form>
+        </div-->          
+    </header>
+    <main>
+        <img class="background_image" src="/static/aleksandr-popov-KtfPqWwhvOs-unsplash.jpeg" alt="Description de l'image">
+        <input type="checkbox" id="toggle-content" class="hidden-checkbox">
+        <div class="label-toggle-button">
+            <button type="button" class="buttonfilters">
+                <label for="toggle-content" class="toggle-label title-word title-word-1">Click here to filters</label>
+            </button>
+        </div>
+        <div class="hidden-content">
+            <section>   
+                <form action="/" method="post">
+                    <fieldset class="fieldset">
+                        <legend>Year: </legend>
+                        <div id="yearfilters">
+                            <div>
+                                <div>
+                                    <legend>Career Starting Year: </legend>
+                                    <label>Between </label>
+                                    <span id="startCreationYearSpan">1958</span>
+                                    <input class="startCreationYearRange" type="range" id="startCreationYearRange" name="startCreationYearRange" min="1958" max="2020" step="1" value="1958">
+                                    <label> and </label>
+                                    <input class="endCreationYearRange" type="range" id="endCreationYearRange" name="endCreationYearRange" min="1958" max="2020" step="1" value="2020">
+                                    <span id="endYearValue01">2020</span>
+                                </div>
+                                <script>
+                                    const startCreationYearRange = document.getElementById("startCreationYearRange");
+                                    const startCreationYearSpan = document.getElementById("startCreationYearSpan");
+                                    const endCreationYearRange = document.getElementById("endCreationYearRange");
+                                    const endYearValue01 = document.getElementById("endYearValue01");
+                                
+                                    startCreationYearRange.addEventListener("input", function () {
+                                        startCreationYearRange.textContent = startCreationYearRange.value;
+                                        if (parseInt(startCreationYearRange.value) > parseInt(endCreationYearRange.value)) {
+                                            endCreationYearRange.value = startCreationYearRange.value;
+                                            endYearValue01.textContent = startCreationYearRange.textContent;
+                                        }
+                                        startCreationYearSpan.textContent = startCreationYearRange.value;
+                                    });
+                                
+                                    endCreationYearRange.addEventListener("input", function () {
+                                        endYearValue01.textContent = endCreationYearRange.value;
+                                        if (parseInt(endCreationYearRange.value) < parseInt(startCreationYearRange.value)) {
+                                            startCreationYearRange.value = endCreationYearRange.value;
+                                            startCreationYearSpan.textContent = endYearValue01.textContent;
+                                        }
+                                    });
+                                
+                                    startCreationYearSpan.textContent = startCreationYearRange.value;
+                                    endYearValue01.textContent = endCreationYearRange.value;
+                                </script>
+                            </div>
+                            <div>
+                                <div>
+                                    <legend>First Album: </legend>
+                                    <label>Between </label>
+                                    <span id="startYearValue02">1958</span>
+                                    <input class="startFirstAlbumYearRange" type="range" id="startFirstAlbumYearRange" name="startFirstAlbumYearRange" min="1958" max="2020" step="1" value="1958">
+                                    <label> and </label>
+                                    <input class="endFirstAlbumYearRange" type="range" id="endFirstAlbumYearRange" name="endFirstAlbumYearRange" min="1958" max="2020" step="1" value="2020">
+                                    <span id="endYearValue02">2020</span>
+                                </div>
+                                <script>
+                                    const startFirstAlbumYearRange = document.getElementById("startFirstAlbumYearRange");
+                                    const startYearValue02 = document.getElementById("startYearValue02");
+                                    const endFirstAlbumYearRange = document.getElementById("endFirstAlbumYearRange");
+                                    const endYearValue02 = document.getElementById("endYearValue02");
+                                    startFirstAlbumYearRange.addEventListener("input", function () {
+                                        startYearValue02.textContent = startFirstAlbumYearRange.value;
+                                        // Assurez-vous que startYearRange02 <= endYearRange02
+                                        if (parseInt(startFirstAlbumYearRange.value) > parseInt(endFirstAlbumYearRange.value)) {
+                                            endFirstAlbumYearRange.value = startFirstAlbumYearRange.value;
+                                            endYearValue02.textContent = startYearValue02.textContent;
+                                        }
+                                    });
+                                    endFirstAlbumYearRange.addEventListener("input", function () {
+                                        endYearValue02.textContent = endFirstAlbumYearRange.value;
+                                        // Assurez-vous que endYearRange02 >= startYearRange02
+                                        if (parseInt(endFirstAlbumYearRange.value) < parseInt(startFirstAlbumYearRange.value)) {
+                                            startFirstAlbumYearRange.value = endFirstAlbumYearRange.value;
+                                            startYearValue02.textContent = endYearValue02.textContent;
+                                        }
+                                    });
+                                    // Initialisation des valeurs avec les valeurs par défaut
+                                    startYearValue02.textContent = startFirstAlbumYearRange.value;
+                                    endYearValue02.textContent = endFirstAlbumYearRange.value;
+                                </script>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend> Numbers of Members: </legend>
+                        <div>
+                            <label>1</label>
+                            <input type="checkbox" id="checkbox1Member" name="checkboxOneMember" checked/>
+                            <label>2</label>
+                            <input type="checkbox" id="checkbox2Members" name="checkboxTwoMembers" checked/>
+                            <label>3</label>
+                            <input type="checkbox" id="checkbox3Members" name="checkboxThreeMembers" checked/>
+                            <label>4</label>
+                            <input type="checkbox" id="checkbox4Members" name="checkboxFourMembers" checked/>
+                            <label>5</label>
+                            <input type="checkbox" id="checkbox5Members" name="checkboxFiveMembers" checked/>
+                            <label>6</label>
+                            <input type="checkbox" id="checkbox6Members" name="checkboxSixMembers" checked/>
+                            <label>7</label>
+                            <input type="checkbox" id="checkbox7Members" name="checkboxSevenMembers" checked/>
+                            <label>8</label>
+                            <input type="checkbox" id="checkbox8Members" name="checkboxEightMembers" checked/>
+                        </div>
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend> Select location: </legend>
+                        <div class="locationcheck">
+                            <div>
+                                <label>America:</label>
+                                <select id="locationSelectAmerica" name="locationSelectAmerica">
+                                    <option value="Choose">Choose</option>
+                                    <option value="Antilles Willemstad Netherlands">Antilles, Willemstad Netherlands</option>
+                                    <option value="Argentina Buenos Aires">Argentina, Buenos Aires</option>
+                                    <option value="Argentina La Plata">Argentina, La Plata</option>
+                                    <option value="Argentina San Isidro">Argentina, San Isidro</option>
+                                    <option value="Brazil Belo Horizonte">Brazil, Belo Horizonte</option>
+                                    <option value="Brazil Brasilia">Brazil, Brasilia</option>
+                                    <option value="Brazil Porto Alegre">Brazil, Porto Alegre</option>
+                                    <option value="Brazil Recif">Brazil, Recif</option>
+                                    <option value="Brazil Rio De Janeiro">Brazil, Rio De Janeiro</option>
+                                    <option value="Brazil Sao Paulo">Brazil, Sao Paulo</option>
+                                    <option value="Canada Montreal">Canada, Montreal</option>
+                                    <option value="Canada Quebec">Canada, Quebec</option>
+                                    <option value="Canada Toronto">Canada, Toronto</option>
+                                    <option value="Canada Vancouver">Canada, Vancouver</option>
+                                    <option value="Canada Windsor">Canada, Windsor</option>
+                                    <option value="Chile Santiago">Chile, Santiago</option>
+                                    <option value="Colombia Bogota">Colombia, Bogota</option>
+                                    <option value="Mexico Mexico City">Mexico, Mexico City</option>
+                                    <option value="Mexico Monterrey">Mexico, Monterrey</option>
+                                    <option value="Mexico Playa Del Carmen">Mexico, Playa Del Carmen</option>      
+                                    <option value="Peru Lima">Peru, Lima</option>
+                                    <option value="USA Alabama">USA, Alabama</option>
+                                    <option value="USA Amityville">USA, Amityville</option>
+                                    <option value="USA Anaheim">USA, Anaheim</option>
+                                    <option value="USA Arizona">USA, Arizona</option>
+                                    <option value="USA Atlanta">USA, Atlanta</option>
+                                    <option value="USA Berwyn">USA, Berwyn</option>
+                                    <option value="USA Boston">USA, Boston</option>
+                                    <option value="USA Brooklyn">USA, Brooklyn</option>
+                                    <option value="USA Canton">USA, Canton</option>
+                                    <option value="USA California">USA, California</option>
+                                    <option value="USA Charlotte">USA, Charlotte</option>
+                                    <option value="USA Chicago">USA, Chicago</option>
+                                    <option value="USA Cincinnati">USA, Cincinnati</option>
+                                    <option value="USA Cleveland">USA, Cleveland</option>
+                                    <option value="USA Colorado">USA, Colorado</option>
+                                    <option value="USA Columbia">USA, Columbia</option>
+                                    <option value="USA Dallas">USA, Dallas</option>
+                                    <option value="USA Detroit">USA, Detroit</option>
+                                    <option value="USA Del Mar">USA, Del Mar</option>
+                                    <option value="USA Florida">USA, Florida</option>
+                                    <option value="USA Georgia">USA, Georgia</option>
+                                    <option value="USA Grand Rapids">USA, Grand Rapids</option>
+                                    <option value="USA Hershey">USA, Hershey</option>
+                                    <option value="USA Houston">USA, Houston</option>
+                                    <option value="USA Illinois">USA, Illinois</option>
+                                    <option value="USA Inglewood">USA, Inglewood</option>
+                                    <option value="USA Indianapolis">USA, Indianapolis</option>
+                                    <option value="USA Kansas City">USA, Kansas City</option>
+                                    <option value="USA Las Vegas">USA, Las Vegas</option>
+                                    <option value="USA Los Angeles">USA, Los Angeles</option>
+                                    <option value="USA Madison">USA, Madison</option>
+                                    <option value="USA Maine">USA, Maine</option>
+                                    <option value="USA Massachusetts">USA, Massachusetts</option>
+                                    <option value="USA Michigan">USA, Michigan</option>
+                                    <option value="USA Minneapolis">USA, Minneapolis</option>
+                                    <option value="USA Minnesota">USA, Minnesota</option>
+                                    <option value="USA Missouri">USA, Missouri</option>
+                                    <option value="USA Montreal">USA, Montreal</option>
+                                    <option value="USA Nevada">USA, Nevada</option>
+                                    <option value="USA New Hampshire">USA, New Hampshire</option>
+                                    <option value="USA New Orleans">USA, New Orleans</option>
+                                    <option value="USA New York">USA, New York</option>
+                                    <option value="USA Newark">USA, Newark</option>
+                                    <option value="USA North Calorina">USA, North Calorina</option>
+                                    <option value="USA Oakland">USA, Oakland</option>
+                                    <option value="USA Oklahoma">USA, Oklahoma</option>
+                                    <option value="USA Oregon">USA, Oregon</option>
+                                    <option value="USA Pennsylvania">USA, Pennsylvania</option>
+                                    <option value="USA Pico Rivera">USA, Pico Rivera</option>
+                                    <option value="USA Pittsburgh">USA, Pittsburgh</option>
+                                    <option value="USA Rosemont">USA, Rosemont</option>
+                                    <option value="USA San Francisco">USA, San Francisco</option>
+                                    <option value="USA Seattle">USA, Seattle</option>
+                                    <option value="USA South Carolina">USA, South Carolina</option>
+                                    <option value="USA St Louis">USA, St Louis</option>
+                                    <option value="USA Texas">USA, Texas</option>
+                                    <option value="USA Tonronto">USA, Toronto</option>
+                                    <option value="USA Uniondale">USA, Uniondale</option>
+                                    <option value="USA Utah">USA, Utah</option>
+                                    <option value="USA Washington">USA, Washington</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Europe:</label>
+                                <select id="locationSelectEurope" name="locationSelectEurope">
+                                    <option value="Choose">Choose</option>
+                                    <option value="Austria Klagenfurt">Austria, Klagenfurt</option>
+                                    <option value="Austria Nickelsdorf">Austria, Nickelsdorf</option>
+                                    <option value="Belarus Minsk">Belarus, Minsk</option>
+                                    <option value="Belgium Antwerp">Belgium, Antwerp</option>
+                                    <option value="Belgium Rotselaar">Belgium, Rotselaar</option>
+                                    <option value="Czechia Ostrava">Czechia, Ostrava</option>
+                                    <option value="Czechia Prague">Czechia, Prague</option>
+                                    <option value="Denmark Aalborg">Denmark, Aalborg</option>
+                                    <option value="Denmark Aarhus">Denmark, Aarhus</option>
+                                    <option value="Denmark Copenhagen">Denmark, Copenhagen</option>
+                                    <option value="Denmark Skanderborg">Denmark, Skanderborg</option>
+                                    <option value="Finland Oulu">Finland, Oulu</option>
+                                    <option value="Finland Turku">Finland, Turku</option>
+                                    <option value="France Arras">France, Arras</option>
+                                    <option value="France Bilbao">France, Bilbao</option>
+                                    <option value="France Boulogne Billancourt">France, Boulogne Billancourt</option>
+                                    <option value="France Freyming Merlebach">France, Freyming Merlebach</option>
+                                    <option value="France Lyon">France, Lyon</option>
+                                    <option value="France Nimes">France, Nimes</option>
+                                    <option value="France Pagney Derriere Barine">France, Pagney Derriere Barine</option>
+                                    <option value="France Paris">France, Paris</option>
+                                    <option value="France Sochaux">France, Sochaux</option>
+                                    <option value="Germany Berlin">Germany, Berlin</option>
+                                    <option value="Germany Cuxhaven">Germany, Cuxhaven</option>
+                                    <option value="Germany Dusseldorf">Germany, Dusseldorf</option>
+                                    <option value="Germany Frankfurt">Germany, Frankfurt</option>
+                                    <option value="Germany Hamburg">Germany, Hamburg</option>
+                                    <option value="Germany Leipzig">Germany, Leipzig</option>
+                                    <option value="Germany Mannheim">Germany, Mannheim</option>
+                                    <option value="Germany Merkers">Germany, Merkers</option>
+                                    <option value="Germany Monchengladbach">Germany, Monchengladbach</option>
+                                    <option value="Germany Munich">Germany, Munich</option>
+                                    <option value="Germany Salem">Germany, Salem</option>
+                                    <option value="Greece Athens">Greece, Athens</option>
+                                    <option value="Hungary Budapest">Hungary, Budapest</option>
+                                    <option value="Ireland Dublin">Ireland, Dublin</option>
+                                    <option value="Italy Florence">Italy, Florence</option>
+                                    <option value="Italy Imola">Italy, Imola</option>
+                                    <option value="Italy Milan">Italy, Milan</option>
+                                    <option value="Netherlands Amsterdam">Netherlands, Amsterdam</option>
+                                    <option value="Netherlands Eindhoven">Netherlands, Eindhoven</option>
+                                    <option value="Netherlands Groningen">Netherlands, Groningen</option>
+                                    <option value="Netherlands Landgraaf">Netherlands, Landgraaf</option>
+                                    <option value="Norway Oslo">Norway, Oslo</option>
+                                    <option value="Poland Gdynia">Poland, Gdynia</option>
+                                    <option value="Poland Warsaw">Poland, Warsaw</option>
+                                    <option value="Romania Napoca">Romania, Napoca</option>
+                                    <option value="Slovakia Bratislava">Slovakia, Bratislava</option>
+                                    <option value="Spain Barcelona">Spain, Barcelona</option>
+                                    <option value="Spain Bilbao">Spain, Bilbao</option>
+                                    <option value="Spain Burriana">Spain, Burriana</option>
+                                    <option value="Spain Madrid">Spain, Madrid</option>
+                                    <option value="Spain Seville">Spain, Seville</option>
+                                    <option value="Spain Zaragoza">Spain, Zaragoza</option>
+                                    <option value="Sweden Gothenburg">Sweden, Gothenburg</option>
+                                    <option value="Sweden Stockholm">Sweden, Stockholm</option>
+                                    <option value="Switzerland Lausanne">Switzerland, Lausanne</option>
+                                    <option value="Switzerland Sion">Switzerland, Sion</option>
+                                    <option value="Switzerland St Gallen">Switzerland, St Gallen</option>
+                                    <option value="Switzerland Zurich">Switzerland, Zurich</option>
+                                    <option value="United Kingdom Aberdeen">United Kingdom, Aberdeen</option>
+                                    <option value="United Kingdom Birmingham">United Kingdom, Birmingham</option>
+                                    <option value="United Kingdom Brixton">United Kingdom, Brixton</option>
+                                    <option value="United Kingdom Cardiff">United Kingdom, Cardiff</option>
+                                    <option value="United Kingdom Glasgow">United Kingdom, Glasgow</option>
+                                    <option value="United Kingdom London">United Kingdom, London</option>
+                                    <option value="United Kingdom Manchester">United Kingdom, Manchester</option>
+                                    <option value="United Kingdom Westcliff On Sea">United Kingdom, Westcliff On Sea</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Asia:</label>
+                                <select id="locationSelectAsia" name="locationSelectAsia">
+                                    <option value="Choose">Choose</option>
+                                    <option value="Choose">Choose</option>  
+                                    <option value="China Changzhou">China, Changzhou</option>
+                                    <option value="China Hong Kong">China, Hong Kong</option>
+                                    <option value="China Huizhou">China, Huizhou</option>
+                                    <option value="China Sanya">China, Sanya</option>
+                                    <option value="India Mumbai">India, Mumbai</option>
+                                    <option value="Indonesia Jakarta">Indonesia, Jakarta</option>
+                                    <option value="Indonesia Yogyakarta">Indonesia, Yogyakarta</option>
+                                    <option value="Japan Nagoya">Japan, Nagoya</option>
+                                    <option value="Japan Osaka">Japan, Osaka</option>
+                                    <option value="Japan Saitama">Japan, Saitama</option>
+                                    <option value="Phillipines Manila">Phillipines, Manila</option>
+                                    <option value="Qatar Doha">Qatar, Doha</option>
+                                    <option value="South Korea Seoul">South Korea, Seoul</option>
+                                    <option value="Taiwan Taipei">Taiwan, Taipei</option>
+                                    <option value="Thailand Bangkok">Thailand, Bangkok</option>
+                                    <option value="United Arab Emirates Abu Dhabi">United Arab Emirates, Abu Dhabi</option>
+                                    <option value="United Arab Emirates Dubai">United Arab Emirates, Dubai</option>   
+                                </select>
+                            </div>
+                            <div>
+                                <label>Oceania:</label>
+                                <select id="locationSelectOceania" name="locationSelectOceania">
+                                    <option value="Choose">Choose</option>
+                                    <option value="Choose">Choose</option>  
+                                    <option value="Australia Brisbane">Australia, Brisbane</option>
+                                    <option value="Australia Burswood">Australia, Burswood</option>
+                                    <option value="Australia Melbourne">Australia, Melbourne</option>
+                                    <option value="Australia New South Wales">Australia, New South Wales</option>
+                                    <option value="Australia Queensland">Australia, Queensland</option>
+                                    <option value="Australia Sydney">Australia, Sydney</option>
+                                    <option value="Australia Victoria">Australia, Victoria</option>
+                                    <option value="Australia West Melbourne">Australia, West Melbourne</option>
+                                    <option value="French Polynesia Papeete">French Polynesia, Papeete</option>
+                                    <option value="New Caledonia Noumea">New Caledonia, Noumea</option>
+                                    <option value="New Zeland Auckland">New Zeland, Auckland</option>
+                                    <option value="New Zeland Dunedin">New Zeland, Dunedin</option>
+                                    <option value="New Zeland Penrose">New Zeland, Penrose</option>
+                                    <option value="New Zeland Wellington">New Zeland, Wellington</option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend>Apply Filters:</legend>
+                        <div>
+                            <button type="submit">Appliquer les filtres</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </section>
+        </div>
+        <section class="container">
+        {{range .}}
+        <div class="divBand">
+            <div class="divBand-inner">
+                <div class="divBand-front">
+                        <img class="image" src={{.Image}}>    
+                    </div>
+                    <div class="divBand-back">
+                        <label class="bandName">{{.Name}}</label>
+                        {{range $m := .Members}}
+                            <pre class="bandMembers">{{$m}}</pre>
+                        {{end}}
+                        <form method="GET" action="/band/">
+                            <button class="btnEnzo" id="btnEnzo" type="submit" >{{.Name}}</button>
+                            <input type="hidden" name="ID" value={{.ID}}>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {{end}}
+    </section>
+    </main>
+    <footer>
+        <p>Groupie Tracker, Zone01 Normandie &copy; 2023</p>
+    </footer>
+</body>
+</html>
