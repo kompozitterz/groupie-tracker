@@ -1,0 +1,454 @@
+html {
+    scroll-behavior: smooth;
+    /* min-height: 105vh; */
+}
+body {
+    background-size: cover;
+    background-repeat: no-repeat; 
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    flex-direction: column;
+    min-height: 105vh;
+    height: 105vh;
+}
+img.background_image {
+    display: none;
+}
+.class_year {
+    margin-left: 48.5%;
+    font-size: 150%;
+}
+.class_starting_years {
+    font-size: 150%;
+}
+.class_first_album {
+    font-size: 150%;
+}
+.class_number_member {
+    margin-left: 43.5%;
+    font-size: 150%;
+}
+.class_concert_location {
+    margin-left: 45.15%;
+    font-size: 150%;
+}
+.class_apply_filters {
+    margin-left: 46.15%;
+    font-size: 150%;
+}
+div.class_number_member2 {
+    display: flex;
+    margin-right: 0.75%;
+    font-size: 150%;
+    text-align: center;
+    justify-content: center;
+}
+main {
+    margin-top: 3.52%;
+    background-attachment: fixed;
+    background-image: url('/static/background6.jpg');
+}
+header, footer {
+    background-color: rgba(200, 215, 220, 0.1);
+    color: white;
+    text-align: center;
+    font-size: 70px;
+}
+header {
+    padding: 16px;
+    height: 5.7%;
+    font-family: 'Bebas Neue', sans-serif;
+    display: block;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; /* Fixe le header en haut de la fenêtre du navigateur */
+    width: 100%; /* Étend le header sur toute la largeur de la fenêtre */
+    z-index: 1000; /* Contrôle la position de l'élément en cas de superposition */
+}
+footer {
+    font-family: 'Heebo', sans-serif;
+    display: flex;
+    color: white;
+    bottom: 0;
+    font-size: 15px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* position: fixed; */
+}
+h1 {
+    margin-left: 20px;
+    font-size: 45px;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+a {
+    font-family: 'Heebo', sans-serif;
+    justify-content: space-between;
+    font-size: 20px;
+    text-decoration: none; color: black;
+    color: white;
+}
+li, a {
+    font-size: 16px;
+}
+a {
+    margin: 5px;
+}
+label {
+    font-size: 20px;
+    font-family: 'Bebas Neue', sans-serif;
+}
+section {
+    position: relative;
+}
+.divBand {
+    background-color: transparent;
+    width: 240px;
+    height: 240px;
+    perspective: 1000px;
+    margin: 0;
+    justify-content: space-between;
+    flex-basis: 240px;
+    flex-grow: 0,5;
+    flex-wrap: wrap;
+    display: flex; border: 6px solid black; border-radius: 13px;
+    backdrop-filter: blur(30px); /*Floute l'arrière plan de la balise */
+}
+.divBand-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.9s;
+    transform-style: preserve-3d;
+    border-radius: 6px;
+}
+.divBand:hover .divBand-inner {
+    transform: rotateY(180deg);
+    border-radius: 6px;
+}
+.divBand-front, .divBand-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 6px;
+}
+.divBand-front {
+    background-color: #bbb;
+    color: black;
+    border-radius: 6px;
+}
+.divBand-back {
+    background-color: #333333;
+    color: white;
+    transform: rotateY(180deg);
+    font-weight: 500;
+    border-radius: 6px;
+}
+.image {
+    border-radius: 6px;
+}
+.image:hover {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    transition: 1s ;
+    align-items: center;
+    border-radius: 6px;
+}
+.bandName {
+    transform: rotateY(180deg);
+    font-size: 30px;
+    font-weight: 800;
+    text-transform: capitalize;
+    font-family: 'Bebas Neue', sans-serif;
+}
+.bandMembers {
+    margin-top: -0.6%;
+    font-size: 10px;
+}
+.container {
+    /* margin: 30px; */
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    flex-basis: content;
+    flex-shrink: 1;
+    flex-wrap: wrap;
+    border-radius: 6px;
+}
+.navbar {
+    margin: auto;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    align-items: center;
+}
+.navbar ul {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    list-style-type: none;
+}
+.navbar ul li a {
+    color: white;
+    padding: 12px;
+}
+.divBtns{
+    margin-right: 2%;
+    width: 6%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.gitBtn:hover{
+    width: 55px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    color: #333333; 
+    border-radius: 4px;
+    transition: background-color 1s;
+}
+.intraBtn:hover{
+    width: 20%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    color: #333333; 
+    border-radius: 4px;
+    transition: background-color 1s;
+}
+.title-word {
+    animation: color-animation 4s linear infinite;
+}
+.title-word-1 {
+    --color-1: #DF8453;
+    --color-2: #3D8DAE;
+    --color-3: #E4A9A8;
+}
+  
+.title-word-2 {
+      --color-1: #DBAD4A;
+      --color-2: #ACCFCB;
+    --color-3: #17494D;
+}
+.title-word-3 {
+    --color-1: #ACCFCB;
+    --color-2: #E4A9A8;
+    --color-3: #ACCFCB;
+}
+  
+.title-word-4 {
+    --color-1: #3D8DAE;
+    --color-2: #DF8453;
+    --color-3: #E4A9A8;
+}
+  
+@keyframes color-animation {
+    0%    {color: var(--color-1)}
+    32%   {color: var(--color-1)}
+    33%   {color: var(--color-2)}
+    65%   {color: var(--color-2)}
+    66%   {color: var(--color-3)}
+    99%   {color: var(--color-3)}
+    100%  {color: var(--color-1)}
+}
+  
+.title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 10px;
+    font-size: 70%;
+    text-transform: uppercase;
+    display: flex;
+    place-items: center;   
+    text-align: center; 
+    height: 50px;
+}
+  
+.title-word-1 {
+      padding: 10px;
+}
+  /* .title-word-2 {
+    padding: 10px;
+} */
+  
+fieldset {
+      color: white;
+      text-align: center;
+}
+    .locationcheck{
+        display: flex;
+        justify-content: space-around;
+}
+.fieldsetyear{
+    display: flex;
+    justify-content: space-around;
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.search-bar form {
+        display: flex;
+        align-items: center;
+}
+    
+.search-bar input[type="text"] {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        margin-right: 5px;
+        font-size: 16px;
+        width: 200px;
+        outline: none;
+        background-color: #ffffff;
+        color: #333333;
+        text-align: center;
+}
+.search-bar button[type="submit"] {
+    background-color: #ffffff;
+        color: #333333;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+.search-bar button[type="submit"]:hover {
+        background-color: #333333;
+        color: #ffffff;
+    }
+#yearfilters{
+    display: flex;
+    justify-content: space-around;
+}
+.search-bar input[type="text"]::placeholder {
+    text-align: center;
+}
+/* Style initial de la case à cocher */
+.hidden-checkbox {
+    display: none; 
+}
+/* Style de la case à cocher lorsqu'elle est cochée */
+.hidden-checkbox:checked ~ .hidden-content {
+    font-size: 20px;
+    font-family: 'Bebas Neue', sans-serif;
+    display: block; /* Afficher le contenu lorsque la case à cocher est cochée */
+}
+/* Style du libellé (label) */
+.toggle-label {
+    transition: 1s;
+    cursor: pointer; /* Curseur de la main au survol */    
+}
+.label-toggle-button{
+    text-align: center;
+    /* margin-top:30px; */
+    /* padding-top: 30px; */
+}
+/* Style du libellé lorsque la case à cocher est cochée */
+.hidden-checkbox:checked ~ .toggle-label {
+    color: red; /* Couleur du texte du label lorsque la case à cocher est cochée */
+}
+/* Style du contenu caché */
+.hidden-content {
+    display: none; /* Masquer le contenu par défaut */
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    backdrop-filter: blur(30px); /*Floute l'arrière plan de la balise */
+}
+/* Style du bouton */
+.buttonfilters {
+    background-color: #fff; /* Couleur de fond blanche */
+    border: none; /* Suppression de la bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur de la main au survol */
+    transition: background-color 0.3s; /* Transition en douceur de la couleur de fond */
+}
+/* Style du texte du bouton */
+.buttonfilters .toggle-label {
+    color: var(--color-1); /* Utilisation de la couleur définie dans .title-word-1 */
+    font-size: 16px; /* Taille de police (personnalisez selon vos besoins) */
+    padding: 10px 20px; /* Espacement intérieur du bouton (personnalisez selon vos besoins) */
+}
+/* Style du bouton au survol */
+.buttonfilters:hover {
+    background-color: #eee; /* Couleur de fond légèrement plus claire au survol */
+}
+
+button.buttonfilters {
+    height: 30px;
+    width: 8%;
+    /* margin: 0; */
+}
+.btnEnzo {
+    cursor: pointer; 
+}
+.btnApply {
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+}
+
+.title-word-3 {
+    margin-left: 3%;
+}
+
+.title-word-1 {
+    margin-left: 1%;
+}
+
+label.toggle-label.title-word.title-word-1 {
+    /* display: flex; */
+    font-size: 16px;
+    margin-bottom: 5%;
+}
+
+/* Exemple de requête de médias pour les écrans larges */
+@media screen and (min-width: 1024px) {
+    /* Styles pour les écrans larges */
+    /* audio {
+      margin-left: 41.3%;
+    } */
+    button.buttonfilters {
+        width: 9%;
+        height: 8%;
+    }
+  }
+  
+  /* Exemple de requête de médias pour les tablettes */
+  @media screen and (max-width: 1023px) and (min-width: 768px) {
+    /* Styles pour les tablettes */
+    /* audio {
+      margin-left: 33%;
+    } */
+
+    button.buttonfilters {
+        width: 17%;
+        height: 8%;
+    }
+  }
+  
+  /* Exemple de requête de médias pour les smartphones */
+  @media screen and (max-width: 767px) {
+    /* Styles pour les smartphones */ 
+    /* audio {
+      margin-left: 28%;
+    } */
+  }
