@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/band.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">    
+        <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
+        <title>{{.Name}}</title>
+    </head>
+    <header class="navbar">
+        <!-- <h1>Groupie Tracker</h1> -->
+        <h1 class="title">
+            <a href="http://localhost:8020">
+                <span class="title-word title-word-1">GEOLOCALIZATION</span>
+                <!-- <span class="title-word title-word-2">TRACKER</span> -->
+                <!-- <span class="title-word title-word-3">GEO</span> -->
+            </a>
+        </h1>
+        <h1 class="title-word title-word-3">{{.Name}}</h1>
+        <div class="search-bar">
+            <form action="/recherche" method="GET">
+                <input class="title-word title-word-1" type="text" name="q" placeholder="Rechercher...">
+                <button class="title-word title-word-2" type="submit">Rechercher</button>
+            </form>
+        </div>
+    </header>  
+    <body styles="display:flex; flex-direction:row;">
+        <img class="background_image" src="/static/background4.jpeg" alt="Description de l'image">
+        <div>
+            <pre class="presentation">
+                <div class="album_and_date">
+                <label class="first_album">Premier album:</label>
+                <label class="first_album_value">{{.FirstAlbum}}</label>
+                <label class="creation_date_value">{{.CreationDate}}</label>
+                <label class="creation_date">Date de création:</label>
+                </div>
+            </pre>
+            <img src={{.Image}}>
+            <div>
+                <!-- ... Vos autres éléments ... -->
+                <!-- <h3>Aperçu sonore:</h3> -->
+                <audio controls>
+                    <source src="/static/BLVKV 1 FT NZ.wav" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l'élément audio.
+                </audio>
+            </div>
+            <h2>Membres:</h2>
+            {{range $m := .Members}}
+                <pre>{{$m}}</pre>
+            {{end}}    
+        </div>
+        <div>
+            <h3>Concert Locations & Dates</h3>
+            {{range $m := .RelationA}}
+                <pre>{{$m}}</pre>
+            {{end}}
+        </div>
+    </body>
+    <footer>
+        <p>Groupie Tracker, Zone01 Normandie &copy; 2023</p>
+    </footer>
+</html>
