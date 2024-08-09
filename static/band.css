@@ -79,11 +79,12 @@ h1 {
 
 h2, h3, h4, pre{
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 300%;
+  font-size: 3rem;
   color: rgb(43, 6, 6);
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
 }   
 
 h2, h3, h4 {
@@ -92,10 +93,11 @@ h2, h3, h4 {
 
 pre {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 200%;
+  font-size: 2rem;
   align-items: center;
   margin-right: 15px;
   margin: 0;
+  color: white;
 }
 
 pre.presentation {
@@ -125,6 +127,10 @@ label {
 
 .first_album {
   align-items: center;
+}
+
+pre.concert-location {
+  font-size: 1.2rem;
 }
 
 .creation_date_value {
